@@ -38,6 +38,36 @@
     <strong>
       __________________________________________________________
     </strong>
+    <div class="">
+
+      {{  posts  }}
+      <p>Ебучая дата на момент написания: 03.04.2020 16:15</p>
+
+    </div>
+    <div class="">
+      <a href="#">KOРОЧЕ ТУТ УЖЕ ИЗВЛЕКАЕМ ИЗ БД ТО ЧТО У НАС ЕСТЬ</a>
+      >
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      {% for post in posts %}
+        <div class="">
+            <p>published@_@: {{  post.published_date }}</p>
+            <h1><a href="#">{{  post.title  }}</a></h1>
+            <p>{{  post.text|linebreaksbr  }}</p>
+        </div>
+      {% endfor %}
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>Ебучая дата на момент написания: 03.04.2020 16:15</p>
+    </div>
 
   </body>
 </html>
