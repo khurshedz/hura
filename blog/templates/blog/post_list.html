@@ -55,9 +55,10 @@
       <br>
       {% for post in posts %}
         <div class="">
-            <p>published@_@: {{  post.published_date }}</p>
+            <p>__________________________________________________________</p>
             <h1><a href="#">{{  post.title  }}</a></h1>
             <p>{{  post.text|linebreaksbr  }}</p>
+            <p>published@_@: {{  post.published_date }}</p>
         </div>
       {% endfor %}
       <br>
