@@ -1,13 +1,27 @@
 .page-header {
-    background-color: #2085DD;
+    background-color: rgb(255,215,0);
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+html,body {
+  height: 100%;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
+}
+
+.blog {
+    text-shadow: 5px 5px 5px rgba(250, 50, 50, .6);
 }
 
 .content {
@@ -38,12 +52,40 @@ h1, h2, h3, h4 {
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
+    padding: 10px 10px 21px 10px;
+    box-shadow: 4px 4px 5px rgba(50, 150, 50, .6);
 }
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
 }
 .comment {
-    margin: 20px 0px 20px 20px;
+    margin: 20px 10px 20px 20px;
+}
+
+.contacts {
+    display: inline-block;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+.image {
+    width: 30px;
+    height: 30px;
+}
+
+.footer {
+    background-color: 000;
+    height: 100px;
+    display: flex;
+}
+
+.footer-author {
+    background-color: fff;
+    font-size: 15px;
+    margin: auto;
+}
+.textik {
+    background-color: 000;
 }
