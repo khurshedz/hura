@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
@@ -38,6 +39,14 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+def post_delete(request, pk):
+    try:
+        post = Post.objects.get(pk=pk)
+        post.delete()
+        return HttpResponseRedirect("/")
+    except Post.DoesNotExist:
+        return HttpResponseNotFound("<h2>Person not found</h2>")
+
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -56,3 +65,6 @@ def contacts(request):
 
 def about(request):
     return render(request, 'blog/about.html')
+
+def unique(request):
+    return render(request, 'blog/unique.html')
