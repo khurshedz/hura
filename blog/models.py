@@ -18,8 +18,8 @@ class Post(models.Model):
         return self.title
 
     def was_published_recently(self):
-        new = timezone.now()
-        return new - datetime.timedelta(days=1) <= self.published_date <= new
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.published_date <= now
 
     was_published_recently.admin_order_field = 'published_date'
     was_published_recently.boolean = True

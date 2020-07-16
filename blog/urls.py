@@ -10,6 +10,7 @@ urlpatterns = [
     path('post/<int:pk>/comment', views.add_comment_to_post, name= 'add_comment_to_post'),
     path('about/',views.about, name='about'),
     path('contacts/', views.contacts, name='contacts'),
+    path('search/', views.post_search, name='post_search'),
     path('unique/', views.unique, name='unique'),
     
 ]

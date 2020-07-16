@@ -60,6 +60,9 @@ def add_comment_to_post(request, pk):
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
 
+def post_search(request):
+    pass    
+
 def contacts(request):
     return render(request, 'blog/contacts.html')
 
