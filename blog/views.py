@@ -61,7 +61,17 @@ def add_comment_to_post(request, pk):
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
 
 def post_search(request):
-    pass    
+    if request.method == 'GET':
+        title = request.GET['title']
+        year = int(request.GET['year'])
+        found_articles = []
+        for article in articles_list:
+            if (name == article[1]) and (year == article[2]):
+                found_articles.append(article)
+        beautiful_html = generate_html(found_articles)
+        return HttpResponse(beautiful_html)
+    return render(request, 'blog/post_search.html')
+
 
 def contacts(request):
     return render(request, 'blog/contacts.html')
