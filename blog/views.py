@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte = timezone.now()).order_by('-published_date')
@@ -59,19 +60,6 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
-
-def post_search(request):
-    if request.method == 'GET':
-        title = request.GET['title']
-        year = int(request.GET['year'])
-        found_articles = []
-        for article in articles_list:
-            if (name == article[1]) and (year == article[2]):
-                found_articles.append(article)
-        beautiful_html = generate_html(found_articles)
-        return HttpResponse(beautiful_html)
-    return render(request, 'blog/post_search.html')
-
 
 def contacts(request):
     return render(request, 'blog/contacts.html')
