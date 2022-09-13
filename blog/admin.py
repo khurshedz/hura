@@ -18,3 +18,6 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['title',]
 
 admin.site.register(Post, PostAdmin)
+
+
+#new comment
