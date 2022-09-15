@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
-
+import logging
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte = timezone.now()).order_by('-published_date')
@@ -76,3 +76,11 @@ def about(request):
 
 def unique(request):
     return render(request, 'blog/unique.html')
+
+
+logger = logging.getLogger(__name__)
+
+def home(request):
+    logger.debug('A debug message')
+
+    return render(request, 'blog/about.html')

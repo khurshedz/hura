@@ -156,6 +156,12 @@ LOGGING = {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
         },
+    'graylog': {
+            'level': 'WARNING',
+            'class': 'graypy.GELFUDPHandler',
+            'host': '127.0.0.1',
+            'port': 8001,
+        },
 
     },
     'loggers': {
@@ -164,6 +170,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'django.request': {
+                    'handlers': ['graylog'],
+                    'level': 'ERROR',
+                    'propagate': True,
+                },
     },
 }
 # Static files (CSS, JavaScript, Images)
