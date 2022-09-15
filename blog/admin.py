@@ -16,5 +16,7 @@ class PostAdmin(admin.ModelAdmin):
     inlines = [CommentInline]
     list_display = ('title', 'published_date', 'was_published_recently',)
     list_filter = ['title',]
+    search_fields = ('title', 'text')
+
 
 admin.site.register(Post, PostAdmin)
