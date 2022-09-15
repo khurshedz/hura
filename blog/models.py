@@ -25,6 +25,11 @@ class Post(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_discription = 'Published recently?'
 
+    class Meta:
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
+        ordering = ['-created_date']
+
 
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
@@ -40,3 +45,7 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
         
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ['-created_date']
