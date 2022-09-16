@@ -11,6 +11,8 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    agent = request.META.get('HTTP_USER_AGENT', '')
+    print(agent)
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
@@ -31,6 +33,8 @@ def post_new(request):
 
     else:
         form = PostForm()
+    agent = request.META.get('HTTP_USER_AGENT', '')
+    print(agent)
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def post_edit(request, pk):
@@ -75,12 +79,16 @@ def about(request):
     return render(request, 'blog/about.html')
 
 def unique(request):
+    agent = request.META.get('HTTP_USER_AGENT', '')
+    print(agent)
     return render(request, 'blog/unique.html')
 
 
 logger = logging.getLogger(__name__)
 
 def home(request):
+    agent = request.META.get('HTTP_USER_AGENT', '')
+    print(agent)
     logger.debug('A debug message')
 
     return render(request, 'blog/about.html')
