@@ -25,6 +25,9 @@ class Post(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_discription = 'Published recently?'
 
+    def delete_post(self):
+        self.delete()
+
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
